@@ -1,0 +1,54 @@
+<div class="col-sm-12" style="text-align: center;">
+    user Detail page
+</div>
+<div style="border:1px solid red; width:30%; margin-left: auto; margin-right: auto; padding: 1.2rem;">
+    <form #userForm="ngForm" (ngSubmit)="userFormData(userForm.value)">
+        <div class="form-group">
+            <label for="username">User Name</label>
+            <input type="text" required #nam="ngModel" name="name" [(ngModel)]="name" class="form-control"
+                placeholder="Enter Name">
+            <span *ngIf="nam.invalid && nam.touched" style="color: rgb(245, 55, 55);">Please enter a Valid
+                input</span><br />
+        </div>
+        <div class="form-group">
+            <label for="email">Email</label>
+            <input type="email" required #mail="ngModel" minlength="2" name="email" [(ngModel)]="email"
+                class="form-control" placeholder="Enter Email">
+            <span *ngIf="mail.invalid && mail.touched" style="color: rgb(245, 55, 55);">Please enter a Valid
+                input</span><br />
+        </div>
+        <div class="form-group">
+            <label for="age">Age</label>
+            <input type="number" required #ag="ngModel" name="age" [(ngModel)]="age"
+                class="form-control" placeholder="Enter Age">
+            <span *ngIf="ag.invalid && ag.touched" style="color: rgb(245, 55, 55);">Please enter a Valid
+                input</span><br />
+        </div>
+        <div class="form-group">
+            <label for="city">City</label>
+            <input type="text" required #citi="ngModel" name="city" [(ngModel)]="city"
+                class="form-control" placeholder="Enter City">
+            <span *ngIf="citi.invalid && citi.touched" style="color: rgb(245, 55, 55);">Please enter a Valid
+                input</span><br />
+        </div>
+        <br>
+        <button type="submit" [disabled]="userForm.invalid" class="btn btn-success">button</button>
+    </form>
+</div>
+
+<div class="container my-4" style="background-color: #E8F9FF; padding: 1rem;">
+    <h4 style="text-align: center;">User Data injected from Service</h4>
+    <ul *ngFor="let user of users">
+        <li>Name: {{user.name | uppercase}} <br> Age: {{user.age}} <br> Email: {{user.email}}</li>
+    </ul>
+</div>
+
+<hr><hr>
+<div class="container" style="border: 2px solid green; margin:1rem">
+<ul >
+    <li *ngFor="let data of userdata ">
+        <span>{{data.id}} - {{data.name}}, &nbsp; {{data.email}}, &nbsp; {{data.address.city}}</span>
+    </li>
+</ul>
+</div>
+<hr><hr>

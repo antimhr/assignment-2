@@ -1,0 +1,59 @@
+<div style="width: 30%; margin-left:auto; margin-right:auto;">
+<h3>Login Page</h3>
+
+<form #emailForm="ngForm"> 
+    <div class="form-group">
+      <p [ngStyle]="{'background-color' : '#FF8686'}">{{err}}</p>
+      <p [ngStyle]="{'background-color' : '#C7F1A4'}">{{succesEmail}}</p>
+      <p [ngStyle]="{'background-color' : '#FF4949'}">{{failEmail}}</p>
+      <label for="email">Email</label>
+      <input type="email" placeholder="email" name="email" class="form-control" email="true" [(ngModel)]="email" #email1="ngModel">
+      <span *ngIf="email1.invalid && email1.touched" style="color: rgb(245, 55, 55);">Please enter a Valid input</span><br />
+    </div>
+    <div class="form-group">
+      <label for="confirm-email">Confirm Email</label>
+      <input type="email" placeholder="confirm email" name="confirmEmail" class="form-control" email="true" [(ngModel)]="confirmEmail" #confirmemail="ngModel">
+    </div>
+    <p>{{err}}</p>
+    <button class="btn btn-primary"(click)="verifyemail()">Verify Email</button>
+</form>
+
+<hr>
+
+<form #loginForm="ngForm" (ngSubmit)="logInUser()">
+    <div class="form-group">
+        <label for="username">User Name</label>
+        <input type="text" required #name="ngModel" name="username" [(ngModel)]="username" class="form-control" placeholder="Enter User Name">
+        <span *ngIf="name.invalid && name.touched" style="color: rgb(245, 55, 55);">Please enter a Valid input</span><br />
+    </div>
+    <div class="form-group">
+        <label for="username">Password</label>
+        <input type="text" required #pass="ngModel" minlength="2" name="password" [(ngModel)]="password" class="form-control" placeholder="Enter Password">
+        <span *ngIf="pass.invalid && pass.touched" style="color: rgb(245, 55, 55);">Please enter a Valid input</span><br />
+
+    </div>
+
+    <!-- <div>
+        <p *ngFor="let item of [].constructor(4)">{{test1}}</p>
+    </div>
+    <div *ngFor="let item of array">
+        <h3 *ngIf="isString(item)">{{item}}</h3>
+        <p *ngIf="isNumber(item)">{{item}}</p>
+    </div>
+
+    <div *ngFor="let item of userDetails">
+        <h4>{{item.name | titlecase}}</h4>
+    </div> -->
+
+    <p style="color: red;">{{invalidCreditental}}</p>
+    <button type="submit" [disabled]="loginForm.invalid" class="btn btn-primary">login</button>
+
+
+    
+</form>
+</div>
+
+
+
+
+

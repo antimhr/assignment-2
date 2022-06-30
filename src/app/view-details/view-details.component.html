@@ -1,0 +1,20 @@
+<button class="btn btn-danger" style="margin-left: 1rem;"><a routerLink="/login" style="color: white;">Logout</a></button>
+<h4 style="text-align: center;">Detail Page</h4>
+<div>
+    <h5>Name :</h5>
+    <p>{{data.firstName}} {{data.middleName}} {{data.lastName}}</p>
+    <h5>Father Name : </h5>
+    <p>{{data.fatherFName}} {{data.fatherMName}} {{data.fatherLName}}</p>
+    <h5>Mother Name : </h5>
+    <p>{{data.motherFName}} {{data.motherMName}} {{data.motherLName}}</p>
+    <h5>gender : </h5>
+    <p>{{data.gender}}</p>
+    <h5>Address : </h5>
+    <p>{{data.line1}} {{data.line2}} &nbsp; {{data.area}} &nbsp; {{data.pin}} &nbsp;  {{data.city}} &nbsp; {{data.states}}</p>
+    <h5>Education : </h5>
+    <p> University: {{data.university}} Grade: {{data.grade}} Year: {{data.year}}</p>
+    <h5>Email : </h5>
+    <p>{{data.email}}</p>
+    <h5>Mobile : </h5>
+    <p>+{{data.countryCode}}-{{data.phone}}</p>
+</div>

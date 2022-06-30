@@ -1,0 +1,198 @@
+<h2 style="text-align: center; color:grey; margin: 2rem 0; text-decoration: underline;">Welcome Component</h2>
+<div style="width: 50%; margin-left:auto; margin-right:auto; margin-bottom: 2rem;">
+    <form #loginForm="ngForm" [formGroup]="form" (ngSubmit)="logValue()">
+        <h4>Personel Details</h4>
+        <div style="display: flex; gap: 10px;">
+            <div class="form-group">
+                <label for="username">First Name</label>
+                <input type="text" name="firstName" formControlName="firstName" class="form-control"
+                    placeholder="Enter User Name">
+            </div>
+            <div class="form-group">
+                <label for="username">Middle Name</label>
+                <input type="text" name="middleName" formControlName="middleName" class="form-control"
+                    placeholder="Enter User Name">
+            </div>
+            <div class="form-group">
+                <label for="username">Last Name</label>
+                <input type="text" name="lastName" formControlName="lastName" minlength="2" class="form-control"
+                    placeholder="Enter Password">
+            </div>
+        </div>
+        <br>
+        <div style="display: flex; gap: 10px;">
+            <div class="form-group">
+                <label for="username">Father First Name</label>
+                <input type="text" name="fatherFName" formControlName="fatherFName" class="form-control"
+                    placeholder="Father's First Name">
+            </div>
+            <div class="form-group">
+                <label for="username">Father Middle Name</label>
+                <input type="text" name="fatherMName" formControlName="fatherMName" class="form-control"
+                    placeholder="Father's Middle Name">
+            </div>
+            <div class="form-group">
+                <label for="username">Father Last Name</label>
+                <input type="text" name="fatherLName" formControlName="fatherLName" minlength="2" class="form-control"
+                    placeholder="Father's Last Name">
+            </div>
+        </div>
+        <br>
+        <div style="display: flex; gap: 10px;">
+            <div class="form-group">
+                <label for="mothername">Mother First Name</label>
+                <input type="text" name="motherFName" formControlName="motherFName" class="form-control"
+                    placeholder="Mother's First Name">
+            </div>
+            <div class="form-group">
+                <label for="mothername">Mother Middle Name</label>
+                <input type="text" name="motherMName" formControlName="motherMName" class="form-control"
+                    placeholder="Father's Middle Name">
+            </div>
+            <div class="form-group">
+                <label for="mothername">Mother Last Name</label>
+                <input type="text" name="motherLName" formControlName="motherLName" minlength="2" class="form-control"
+                    placeholder="Mother's Last Name">
+            </div>
+        </div>
+        <div class="form-group">
+            <p>Gender:</p>
+            <input class="form-check-input" type="radio" id="male" name="gender" value="male" formControlName="gender">
+            <label class="form-check-label" for="male">Male</label><br>
+            <input class="form-check-input" type="radio" id="female" name="gender" value="female"
+                formControlName="gender">
+            <label class="form-check-label" for="female">female</label><br>
+            <input class="form-check-input" type="radio" id="other" name="gender" value="other"
+                formControlName="gender">
+            <label class="form-check-label" for="other">Others</label>
+        </div>
+        <br>
+        <hr>
+        <br>
+        <div class="form-group">
+            <h4>Home Address</h4>
+            <label for="Line1">Line 1</label>
+            <input type="text" name="line1" class="form-control" placeholder="Line 1" formControlName="line1">
+
+            <label for="line2">Line 2</label>
+            <input type="text" name="line2" class="form-control" placeholder="Line 2" formControlName="line2">
+
+            <label for="area">Area</label>
+            <input type="text" name="area" class="form-control" placeholder="area" formControlName="area">
+
+            <label for="pincode">Pincode</label>
+            <input type="number" name="pincode" class="form-control" placeholder="pincode" formControlName="pin">
+
+            <label for="city">City</label>
+            <input type="text" name="city" class="form-control" placeholder="city" formControlName="city">
+
+
+            <label for="state">State:</label><br>
+            <select name="state" id="state" formControlName="states"
+                style="padding: .7rem 1rem; border: 1px solid rgb(196, 196, 196);">
+                <option>Select State</option>
+                <option *ngFor="let state of stateList">{{state}}</option>
+            </select>
+        </div>
+        <br>
+        <hr>
+        <br>
+        <h4>Education</h4>
+        <div style="display: flex; gap: 10px;">
+            <div class="form-group">
+                <label for="university">University</label><br>
+                <input type="text" class="form-control" formControlName="university">
+            </div>
+            <div class="form-group">
+                <label for="grade">Grade</label><br>
+                <input type="text" class="form-control" formControlName="grade">
+            </div>
+            <div class="form-group">
+                <label for="year">Year</label><br>
+                <input type="number" class="form-control" formControlName="year">
+            </div>
+        </div><br>
+
+
+        <div class="form-group">
+            <label for="email">Email</label><br>
+            <input type="email" formControlName="email" required class="form-control col-sm-2"><br>
+            <div *ngIf="f.email.touched && f.email.invalid" class="alert alert-danger errormsg">
+                <div *ngIf="f.email.errors.required">Email is required.</div>
+            </div>
+            <label for="mobile">Mobile</label><br>
+            <input type="text" formControlName="countryCode" placeholder="country Code"><br>
+            <div *ngIf="f.countryCode.touched && f.countryCode.invalid" class="alert alert-danger errormsg">
+                <div *ngIf="f.countryCode.errors.required">Country code is required.</div>
+                <div *ngIf="f.countryCode.errors.pattern">Please, Enter 2 digit Country Code.</div>
+            </div>
+            <input type="text" placeholder="Mobile number" formControlName="phone">
+
+            <div *ngIf="f.phone.touched && f.phone.invalid" class="alert alert-danger errormsg">
+                <div *ngIf="f.phone.errors.required">Mobile Number is required.</div>
+                <div *ngIf="f.phone.errors.pattern">Please, Enter 10 digit Mobile Number.</div>
+            </div>
+
+
+        </div><br>
+
+        <button type="button" [disabled]="loginForm.invalid" class="btn btn-primary" (click)="onSubmit()">Submit
+            Details</button>
+        <button type="reset" class="btn btn-danger" style="margin-left: 1rem;">Reset</button>
+
+        <hr><hr><br><br><hr><hr>
+
+        <div class="col-6">
+            <button type="button" class="btn btn-primary mb-2" (click)="addEducation()">Add Education</button>
+          <section class="container border mb-4 p-3" *ngFor="let edu of education; let i = index;">
+            <div class="row">
+              <div class="col-6">
+                  <h4>Education {{i + 1}}</h4>
+              </div>
+              <div class="col-6 text-right">
+                  <button type="button" class="btn btn-danger btn-sm" (click)="removeEducation(i)">Remove</button>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-6">
+                  <div class="form-group">
+                      <label>University</label>
+                      <input type="text" class="form-control" [(ngModel)]="edu.university" name="university_{{edu.id}}" placeholder="Mumbai university" [ngModelOptions]="{standalone: true}"/>
+                    </div>
+              </div>
+              <div class="col-6">
+                  <div class="form-group">
+                      <label>Grade</label>
+                      <input type="text" class="form-control" [(ngModel)]="edu.grade" name="grade_{{edu.id}}" placeholder="grade" [ngModelOptions]="{standalone: true}"/>
+                    </div>
+              </div>
+            </div>
+            
+            <div class="row">
+              <div class="col-6">
+                  <div class="form-group">
+                      <label>Year</label>
+                      <input type="text" class="form-control" [(ngModel)]="edu.year" name="year_{{edu.id}}" placeholder="Mumbai" [ngModelOptions]="{standalone: true}"/>
+                    </div>
+              </div>
+              
+            </div>
+          </section>
+    
+          <div class="text-right">
+              <input type="submit" class="btn btn-success" value="Submit"/>
+          </div>
+          
+        </div>
+
+        <!-- ###################### -->
+
+    </form>
+</div>
+
+<!-- <div *ngFor="let data of mydata">
+    <p>{{data.username}}</p>  
+    <p>{{data.password}}</p>  
+
+</div> -->
+ 

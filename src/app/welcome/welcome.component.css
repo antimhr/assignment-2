@@ -1,0 +1,11 @@
+input{
+    margin-bottom: .5rem;
+}
+h4{
+    color: grey;
+}
+
+.errormsg{
+    width: fit-content;
+    padding: 10px;
+}
